@@ -49,6 +49,7 @@ class NBPTableAService implements NBPTableAInterface
                 'name' => $rate->currency,
                 'currency_code' => $rate->code,
                 'exchange_rate' => $rate->mid,
+                'exchange_rate_int' => $rate->mid * 10_000,
             ];
         }
         Currency::insert($ratesToInsert);
@@ -56,6 +57,20 @@ class NBPTableAService implements NBPTableAInterface
 
     private function _insertOrUpdateRates($currencies, array $rates)
     {
+        // update
+        foreach ($currencies as $currency) {
+            foreach ($rates as $k =>  $rate) {
+                if ($rate->code === $currency->currency_code){
+                    if ($currency->exchange_rate !== $rate->mid){
+                        $currency->exchange_rate = $rate->mid;
+                        $currency->save();
+                    }
+                    unset($rates[$k]);
+                }
+            }
+        }
 
+        // create
+        $this->_insertRates($rates);
     }
 }
