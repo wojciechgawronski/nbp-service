@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->uuid('id')->unique();
-            $table->string('name');
-            $table->string('currency_code', 3)->unique();
-            $table->float('exchange_rate', total:10, places: 6);
-            $table->integer('exchange_rate_int');
+            $table->string('name')->comment('nbp api: currency');
+            $table->string('currency_code', 3)->unique()->comment('nbpApi: code');
+            $table->float('exchange_rate', total:10, places: 6)->comment('nbpApi: mid');
+            $table->integer('exchange_rate_int')->nullable()->comment('nbpApi: mid');
             $table->timestamps();
         });
     }
