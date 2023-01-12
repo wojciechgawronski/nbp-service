@@ -34,7 +34,10 @@ class CurlClass implements CurlInterface
 
     public function test(): bool
     {
-        return false;
+        if ($this->httpResponseCode == 200) {
+            return true;
+        }
+        return false; 
     }
 
     private function _curl(): string
