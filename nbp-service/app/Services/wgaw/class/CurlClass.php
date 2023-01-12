@@ -26,10 +26,14 @@ class CurlClass implements CurlInterface
 
     }
 
-    public function getResponseBody(): object
+    public function getResponseBody(): array
     {
-        $o = new stdClass();
-        return $o;
+        $responseStr = $this->curlResponse;
+        $start = strpos($responseStr, "\r\n\r\n") +4;
+        $bodyStr = substr($responseStr, $start, strlen($responseStr) - $start);
+        $body = json_decode($bodyStr);
+        
+        return $body;
     }
 
     public function test(): bool
@@ -40,7 +44,7 @@ class CurlClass implements CurlInterface
         return false;
     }
 
-    private function _curl($url): string
+    private function _curl(string $url): string
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

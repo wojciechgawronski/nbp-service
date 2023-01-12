@@ -8,7 +8,7 @@ interface CurlInterface
 {
     public function getResponseHeaders(): object;
 
-    public function getResponseBody(): object;
+    public function getResponseBody(): array;
 
     public function test(): bool;
 }
