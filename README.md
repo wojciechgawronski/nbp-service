@@ -1,5 +1,12 @@
 # nbp-service
 
+**endpoinds**
+```
+/currencies - dump wartości w aplikacji Modelu Currency  
+/currencies/wgService - uruchomienie serwisu: **app/Services/wgaw/NBPTableAService** dodanie lub aktualizacja wartosci z TabeliA (NBP API)  
+/currencies/testAdd - testoowe dodanie przykładowych danych (baza danych produkcyjna)  
+```
+
 ### Wstępne założenia
 1. Możliwość wstrzykiwania serwisu po interfejsie.
 2. Możliwość odpalania serwisu przez HTTP (get) i Konsolę.

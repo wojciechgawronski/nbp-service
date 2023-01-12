@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/currencies', [CurrencyController::class, 'index']);
 Route::get('/currencies/testAdd', [CurrencyController::class, 'testAdd']);
+Route::get('/currencies/wgService', [CurrencyController::class, 'wgService']);

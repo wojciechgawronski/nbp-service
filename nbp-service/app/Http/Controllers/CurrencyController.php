@@ -13,9 +13,7 @@ class CurrencyController extends Controller
     public function __construct(
         private NBPTableAInterface $NBPService,
     ) {
-        if ($NBPService->testService()) {
-            $NBPService->run();
-        }
+
     }
 
     public function index()
@@ -36,5 +34,12 @@ class CurrencyController extends Controller
 
         dd(Currency::insert($currency));
 
+    }
+
+    public function wgService()
+    {
+        if ($this->NBPService->testService()) {
+            $this->NBPService->run();
+        }
     }
 }
