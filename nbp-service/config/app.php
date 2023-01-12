@@ -195,6 +195,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * custom services
+         */
+        App\Providers\WGawronskiServiceProvider::class,
+
+
     ],
 
     /*
