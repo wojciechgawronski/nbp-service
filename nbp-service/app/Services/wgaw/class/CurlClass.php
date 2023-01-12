@@ -16,7 +16,7 @@ class CurlClass implements CurlInterface
         private string $url,
     )
     {
-       $this->curlResponse = $this->_curl();
+       $this->curlResponse = $this->_curl($url);
     }
 
     public function getResponseHeaders(): object
@@ -37,13 +37,13 @@ class CurlClass implements CurlInterface
         if ($this->httpResponseCode == 200) {
             return true;
         }
-        return false; 
+        return false;
     }
 
-    private function _curl(): string
+    private function _curl($url): string
     {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->url);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HEADER, TRUE);
         $response = curl_exec($ch);
