@@ -16,6 +16,10 @@
                     <li class="nav-item">
                         <a class="nav-link @if (Request::route()->getName() == 'web.currencies.deleteAll') active  @endif" href="{{ route('web.currencies.deleteAll') }}">delete all</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if (Request::route()->getName() == 'web.currencies.runWGawService') active  @endif" href="{{ route('web.currencies.runWGawService') }}">Run service</a>
+                    </li>
+
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">

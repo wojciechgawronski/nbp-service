@@ -21,3 +21,4 @@ Route::get('/currencies', [CurrencyController::class, 'index'])->name('currencie
 Route::get('/currencies/testAdd', [CurrencyController::class, 'testAdd']);
 Route::get('/currencies/wgService', [CurrencyController::class, 'wgService']);
 Route::get('/currencies/deleteAll', [CurrencyController::class, 'deleteAll'])->name('web.currencies.deleteAll');
+Route::get('/currencies/wgawservice/run', [CurrencyController::class, 'runWgawService'])->name('web.currencies.runWGawService');

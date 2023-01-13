@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Currency;
-use App\Services\Contracts\NBPTableAInterface;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Services\Contracts\NBPTableAInterface;
 
 class CurrencyController extends Controller
 {
@@ -26,7 +26,7 @@ class CurrencyController extends Controller
     {
         Currency::truncate();
         $currencies = Currency::all();
-        return view('currencies.index', compact('currencies'));
+        return redirect()->route('currencies.index')->with('success', 'Delete all data');
     }
 
     public function testAdd()
@@ -40,7 +40,12 @@ class CurrencyController extends Controller
         ];
 
         dd(Currency::insert($currency));
+    }
 
+    public function runWgawService()
+    {
+        $this->wgService();
+        return redirect()->route('currencies.index')->with('success', 'Dodano / auktualniono dane');
     }
 
     public function wgService()
@@ -48,5 +53,6 @@ class CurrencyController extends Controller
         if ($this->NBPService->testService()) {
             $this->NBPService->run();
         }
+        dd('Done!');
     }
 }
