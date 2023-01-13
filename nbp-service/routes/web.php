@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\web\DarkThemeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'start')->name('start_view');
-
+Route::get('/darkTheme', DarkThemeController::class)->name('web.dark_theme');
 Route::get('/currencies', [CurrencyController::class, 'index'])->name('currencies.index');
 Route::get('/currencies/testAdd', [CurrencyController::class, 'testAdd']);
 Route::get('/currencies/wgService', [CurrencyController::class, 'wgService']);

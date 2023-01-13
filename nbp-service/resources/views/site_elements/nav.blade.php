@@ -14,6 +14,13 @@
                         <a class="nav-link @if (Request::route()->getName() == 'currencies.index') active  @endif" href="{{ route('currencies.index') }}">currencies</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('web.dark_theme') }}">
+                            @if (session('isDarkTheme'))<i class="far fa-sun small"></i>@else<i class="far fa-moon small"></i>@endif
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>

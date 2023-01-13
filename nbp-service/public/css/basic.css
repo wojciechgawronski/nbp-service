@@ -1,0 +1,78 @@
+/* dark mode */
+.dark-theme {
+    background: #191C1F !important;
+    color: #ccc !important;
+}
+.dark-theme #sidebarMenu {
+    background: black !important;
+}
+.dark-theme nav {
+    background: #0a0302 !important;
+}
+.dark-theme nav a, .dark-theme nav span {
+    color: #f1f1f1 !important;
+}
+.dark-theme nav li:hover {
+    background: #111;
+}
+.dark-theme nav ul {
+    background: #0a0302 !important;
+}
+.dark-theme nav ul a, .dark-theme nav ul span {
+    color: #f1f1f1 !important;
+}
+.dark-theme nav ul a:hover, .dark-theme nav ul span:hover {
+    background: #111;
+}
+.dark-theme #sidebarMenu .nav-link, .dark-theme .table {
+    color: #ccc;
+}
+.dark-theme section .container {
+    background: black !important;
+}
+.dark-theme input, .dark-theme textarea {
+    background: black !important;
+    border: 1px solid gray;
+    color: lightblue !important;
+}
+.dark-theme select {
+    background: black !important;
+    color: #ccc;
+}
+.dark-theme .card {
+    background: #222 !important;
+}
+.dark-theme .table tr {
+    border-bottom: black;
+}
+.dark-theme .btn {
+    color: white;
+}
+.dark-theme .btn:hover {
+    color: black;
+}
+.dark-theme .accordion .accordion-item {
+    background: black !important;
+}
+.dark-theme .accordion .accordion-item .accordion-header button {
+    background: black !important;
+    color: lightgray !important;
+}
+
+.dark-theme .card {
+    border-color: #999;
+}
+.dark-theme .card .btn-outline-secondary {
+    background: black;
+}
+.dark-theme .card .btn-outline-secondary:hover {
+    color: #999;
+}
+.dark-theme .list-group-item {
+    background: #333;
+    color: #999;
+    border-color: black;
+}
+.dark-theme .table-striped td {
+    color: #f9f9f9 !important;
+}
