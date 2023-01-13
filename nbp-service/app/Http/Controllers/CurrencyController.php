@@ -42,7 +42,7 @@ class CurrencyController extends Controller
         dd(Currency::insert($currency));
     }
 
-    public function runWgawService()
+    public function runWebWgawService()
     {
         $this->wgService();
         return redirect()->route('currencies.index')->with('success', 'Dodano / auktualniono dane');
@@ -53,6 +53,5 @@ class CurrencyController extends Controller
         if ($this->NBPService->testService()) {
             $this->NBPService->run();
         }
-        dd('Done!');
     }
 }
