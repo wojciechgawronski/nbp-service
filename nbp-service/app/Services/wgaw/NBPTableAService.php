@@ -16,10 +16,8 @@ class NBPTableAService implements NBPTableAInterface
     private string $nbpExchangeRatesTableAUrl = "http://api.nbp.pl/api/exchangerates/tables/A/";
     private int $httpResponseCode;
 
-    public function __construct()
-    {
-
-    }
+    public function __construct(CurlInterface $curl)
+    { }
 
     public function testService(): bool
     {

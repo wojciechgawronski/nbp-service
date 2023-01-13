@@ -32,7 +32,7 @@ class CurlClass implements CurlInterface
         $start = strpos($responseStr, "\r\n\r\n") +4;
         $bodyStr = substr($responseStr, $start, strlen($responseStr) - $start);
         $body = json_decode($bodyStr);
-        
+
         return $body;
     }
 

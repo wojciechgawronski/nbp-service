@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\wgaw\class\CurlClass;
 use Illuminate\Support\ServiceProvider;
 
 class WGawronskiServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class WGawronskiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind('App\Services\wgaw\interfaces\CurlInterface', 'App\Services\wgaw\class\CurlClass');
+        // $this->app->bind('App\Services\wgaw\interfaces\CurlInterface', 'App\Services\wgaw\class\CurlClass');
+        $this->app->bind('App\Services\wgaw\interfaces\CurlInterface', function(){
+            return new CurlClass(config('global.currency.nbpServiceApi'));
+        });
     }
 }
