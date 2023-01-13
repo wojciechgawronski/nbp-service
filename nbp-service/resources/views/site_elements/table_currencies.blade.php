@@ -1,7 +1,7 @@
 @if($currencies->isNotEmpty())
 
     <?php
-    $converter = 10_000;
+    $converter = config('global.currency.converterToInt');
     $amount = 1000_000_000;
     ?>
 
@@ -16,7 +16,7 @@
             <th scope="col">code</th>
             <th scope="col">rate (float)</th>
             <th scope="col">1 mld</th>
-            <th scope="col">rate (int, * 10000)</th>
+            <th scope="col">rate (int, * {{ $converter }})</th>
             <th scope="col">1 mld</th>
             <th scope="col">Roznica: float - int</th>
             <th scope="col"></th>

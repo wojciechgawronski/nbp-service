@@ -49,7 +49,7 @@ class NBPTableAService implements NBPTableAInterface
                 'name' => $rate->currency,
                 'currency_code' => $rate->code,
                 'exchange_rate' => $rate->mid,
-                'exchange_rate_int' => $rate->mid * 10_000,
+                'exchange_rate_int' => $rate->mid * config('global.currency.converterToInt'),
             ];
         }
         Currency::insert($ratesToInsert);
