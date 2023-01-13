@@ -11,6 +11,7 @@
 </head>
 <body class="@if (session('isDarkTheme')) dark-theme  @endif">
     @include('site_elements.nav')
+    @include('site_elements.flash_messages')
     @yield('main')
     @include('site_elements.footer')
 </body>
