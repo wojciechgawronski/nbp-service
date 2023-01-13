@@ -9,6 +9,9 @@
 .dark-theme nav {
     background: #0a0302 !important;
 }
+.dark-theme nav a.active{
+    color: orange !important;
+}
 .dark-theme nav a, .dark-theme nav span {
     color: #f1f1f1 !important;
 }
