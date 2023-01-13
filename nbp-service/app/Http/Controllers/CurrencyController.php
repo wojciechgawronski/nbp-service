@@ -19,7 +19,7 @@ class CurrencyController extends Controller
     public function index()
     {
         $currencies = Currency::all();
-        dd($currencies);
+        return view('currencies.index', compact('currencies'));
     }
 
     public function testAdd()
