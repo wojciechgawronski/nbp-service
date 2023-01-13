@@ -22,6 +22,13 @@ class CurrencyController extends Controller
         return view('currencies.index', compact('currencies'));
     }
 
+    public function deleteAll()
+    {
+        Currency::truncate();
+        $currencies = Currency::all();
+        return view('currencies.index', compact('currencies'));
+    }
+
     public function testAdd()
     {
         $currency = [
