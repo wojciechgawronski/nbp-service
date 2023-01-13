@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CurrencyResource;
 use App\Models\Currency;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -20,6 +21,13 @@ class CurrencyController extends Controller
     {
         $currencies = Currency::all();
         return view('currencies.index', compact('currencies'));
+    }
+
+    public function indexApi()
+    {
+        $currencies = CurrencyResource::collection(Currency::all());
+        return response()->json($currencies, 200);
+
     }
 
     public function deleteAll()

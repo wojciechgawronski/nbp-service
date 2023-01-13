@@ -20,6 +20,9 @@
                         <a class="nav-link @if (Request::route()->getName() == 'web.currencies.runWGawService') active  @endif" href="{{ route('web.currencies.runWGawService') }}">Run service</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('api.currencies.index') }}">api</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('telescope') }}">telescope</a>
                     </li>
                 </ul>
