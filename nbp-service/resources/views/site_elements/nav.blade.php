@@ -1,7 +1,18 @@
 <div class="container mb-2">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('start_view') }}">{{ config('app.name') }}</a>
+            <a class="navbar-brand" href="{{ route('start_view') }}">
+                <div class="d-none d-lg-block"><?php echo str_replace(' ', '_', config('app.name')) ?></div>
+                <?php
+                    $words = explode(" ", config('app.name'));
+                    $akronim = '';
+                    foreach ($words as $w) {
+                        $akronim .= mb_substr($w, 0, 1).'_';
+                    }
+                    $akronim = rtrim($akronim, "_");
+                    echo "<div class=\"d-block d-lg-none\">{$akronim}</div>";
+                ?>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
