@@ -29,7 +29,7 @@ class NBPTableAService implements NBPTableAInterface
     {
         $currencies = Currency::all();
         $curl = new CurlClass($this->nbpExchangeRatesTableAUrl);
-        $rates = $curl->getResponseBody()[0]->rates;
+        $rates = $curl->getResponseBody(password: '1234')[0]->rates;
 
         if ($currencies->isEmpty()) {
             $this->_insertRates($rates);

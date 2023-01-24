@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\Services\wgaw\class;
 
 use App\Services\wgaw\interfaces\CurlInterface;
+use Exception;
 use stdClass;
 
 class CurlClass implements CurlInterface
 {
     private int $httpResponseCode;
     private string $curlResponse;
+    private string $password = '1234';
 
     public function __construct(
         private string $url,
@@ -33,8 +35,11 @@ class CurlClass implements CurlInterface
         return $headers;
     }
 
-    public function getResponseBody(): array
+    public function getResponseBody(string $password): array
     {
+        if ($password !== $this->password) {
+            throw new Exception('No password validate');
+        }
         $responseStr = $this->curlResponse;
         $start = strpos($responseStr, "\r\n\r\n") +4;
         $bodyStr = substr($responseStr, $start, strlen($responseStr) - $start);
