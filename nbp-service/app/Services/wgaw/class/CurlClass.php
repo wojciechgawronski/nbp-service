@@ -14,10 +14,8 @@ class CurlClass implements CurlInterface
 
     public function __construct(
         private string $url,
-    )
-    {
-       $this->curlResponse = $this->_curl($url);
-       $this->getResponseHeaders();
+    ) {
+        $this->curlResponse = $this->_curl($url);
     }
 
     public function getResponseHeaders(): object
@@ -33,7 +31,6 @@ class CurlClass implements CurlInterface
             }
         }
         return $headers;
-
     }
 
     public function getResponseBody(): array
@@ -59,7 +56,7 @@ class CurlClass implements CurlInterface
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HEADER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, true);
         $response = curl_exec($ch);
         $httpResponseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
@@ -69,5 +66,3 @@ class CurlClass implements CurlInterface
         return $response;
     }
 }
-
-
