@@ -17,12 +17,22 @@ class CurlClass implements CurlInterface
     )
     {
        $this->curlResponse = $this->_curl($url);
+       $this->getResponseHeaders();
     }
 
     public function getResponseHeaders(): object
     {
-        $o = new stdClass();
-        return $o;
+        $headers = new stdClass();
+        $headerText = substr($this->curlResponse, 0, strpos($this->curlResponse, "\r\n\r\n"));
+        foreach (explode("\r\n", $headerText) as $i => $line) {
+            if ($i == 0) {
+                $headers->http_code = $line;
+            } else {
+                list($key, $val) = explode(':', $line);
+                $headers->$key = $val;
+            }
+        }
+        return $headers;
 
     }
 
